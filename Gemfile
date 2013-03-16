@@ -4,7 +4,7 @@ gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '2.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
+gem 'omniauth-twitter'
 
 group :test do
 end
