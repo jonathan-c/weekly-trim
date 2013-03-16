@@ -1,11 +1,20 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'bootstrap-sass', '2.1'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :test do
+end
+
+group :development do
+	gem 'sqlite3'
+end
+
+group :production do
+end
 
 
 # Gems used only for assets and not required
