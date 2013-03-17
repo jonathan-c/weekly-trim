@@ -5,7 +5,21 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Post",    '#' %></li>
-          <li><%= link_to "My Groups",    '#' %></li>
+					<li class="dropdown" id="admin_menu">
+				    <a class="dropdown-toggle" data-toggle="dropdown">
+				      My Groups
+				      <b class="caret"></b>
+				    </a>
+				    <ul class="dropdown-menu">
+							<% if current_user.groups.count == 0 %>
+								<li><%= link_to "Create group", '#' %></li>
+							<% else %>
+				      	<% current_user.groups.each do |group| %>
+				          <li><a href="#"><%= group.name %></a></li>
+				      	<% end %>
+							<% end %>
+				    </ul>
+				  </li>
 					<% if current_user %>
           	<li><%= link_to "Sign out", signout_path %></li>
 					<% else %>
@@ -16,3 +30,5 @@
     </div>
   </div>
 </header>
+
+
