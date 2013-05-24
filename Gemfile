@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '2.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'certified'
 
 group :test do
 end

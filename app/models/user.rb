@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :uid
-  has_and_belongs_to_many :groups
+  has_many :memberships
+  has_many :groups, :through => :memberships
   
   def self.create_with_omniauth(auth)
     create! do |user|
