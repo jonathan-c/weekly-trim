@@ -6,6 +6,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'certified'
+gem 'annotate'
 
 group :test do
 end
