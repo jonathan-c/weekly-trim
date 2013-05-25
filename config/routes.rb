@@ -6,8 +6,10 @@ WeeklyTrim::Application.routes.draw do
 
   get "pages/home"
   get "pages/welcome"
+  get "pages/no_access"
   
   match "/welcome" => "pages#welcome"
+  match "/pages/no_access" => "pages#no_access"
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
   

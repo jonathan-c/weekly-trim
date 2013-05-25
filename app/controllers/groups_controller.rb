@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :find_group, :only => [:show, :edit, :update]
+  before_filter :check_permission, :only => [:show]
   
   def new
     @group = Group.new
@@ -32,6 +33,14 @@ class GroupsController < ApplicationController
   
     def find_group
       @group = Group.find(params[:id])
+    end
+    
+    def check_permission
+      if current_user.nil?
+        redirect_to root_path 
+      elsif !current_user.member?(@group)
+        redirect_to '/pages/no_access'
+      end
     end
 
 end

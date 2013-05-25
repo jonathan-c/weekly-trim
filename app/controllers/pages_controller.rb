@@ -5,4 +5,8 @@ class PagesController < ApplicationController
   def index
     render :layout=>false
   end
+  
+  def no_access
+    
+  end
 end

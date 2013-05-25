@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
   def admin?(group)
     group.memberships.find_by_user_id(self.id).admin
   end
+  
+  def member?(group)
+    self.memberships.find_by_group_id(group.id).nil? ? false : true
+  end
 end
