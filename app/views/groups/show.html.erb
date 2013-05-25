@@ -1,4 +1,5 @@
 <h1><%= @group.name %></h1>
+
 <% if current_user.nil? %>
 	<%= link_to "Sign in with Facebook", "/auth/facebook" %>
 	<%= link_to "Sign in with Twitter", "/auth/twitter" %>
@@ -11,13 +12,13 @@
 		<h2><%= link_to "Edit name", edit_group_path(@group.id) %></h2>
 	<% end %>
 <% end %>
-<h3>Show users in this group below</h3>
-<ol>
+
+<h3>Group Members</h3>
 	<% @group.users.each do |user| %>
-	<li>
+	<div>
 		<%= user.name %><br>
-		<%= image_tag(user.image) %>
-	</li>
-	<% end %>
-</ol>
+		<%= image_tag(user.image, :size => "100x133") %>
+	</div>
+<% end %>
+
 
