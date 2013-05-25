@@ -12,5 +12,7 @@
 
 class Post < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :content, :url
+  attr_accessible :content, :url, :user_id
+  
+  validates :content, presence: :true
 end

@@ -1,0 +1,8 @@
+<h1>Post something new</h1>
+<%= form_for([@group, @post]) do |f| %>
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+	<%= f.label :url %>
+	<%= f.text_field :url %>
+	<%= f.submit %>
+<% end %>

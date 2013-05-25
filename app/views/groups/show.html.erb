@@ -13,11 +13,16 @@
 	<% end %>
 <% end %>
 
+<%= link_to "Post something new", new_group_post_path(@group.id) %>
+
 <h3>Group Members</h3>
 	<% @group.users.each do |user| %>
 	<div>
 		<%= user.name %><br>
-		<%= image_tag(user.image, :size => "100x133") %>
+		<%= image_tag(user.image, :size => "100x133") %><br>
+		<% if !user.posts.last.nil? %>
+			<%= link_to user.posts.last.content, user.posts.last.url %>
+		<% end %>
 	</div>
 <% end %>
 
