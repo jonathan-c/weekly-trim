@@ -1,5 +1,9 @@
 WeeklyTrim::Application.routes.draw do
   
+  get "join_groups/create"
+
+  get "join_groups/destroy"
+
   resources :groups, :except => [:index]
 
   get "sessions/create"
@@ -7,6 +11,9 @@ WeeklyTrim::Application.routes.draw do
   get "pages/home"
   get "pages/welcome"
   get "pages/no_access"
+  
+  post "/join_groups/create"
+  delete "/join_groups/destroy"
   
   match "/welcome" => "pages#welcome"
   match "/pages/no_access" => "pages#no_access"

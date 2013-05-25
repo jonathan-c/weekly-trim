@@ -1,6 +1,23 @@
 <h1><%= @group.name %></h1>
-<% if current_user.admin?(@group) %>
-	<h2><%= link_to "Edit name", edit_group_path(@group.id) %></h2>
+<% if current_user.nil? %>
+	<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+	<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<% elsif !current_user.member?(@group) %>
+	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
+<% elsif current_user.member?(@group) %>
+	<%= button_to "Leave Group", {:controller => :join_groups, :action => 'destroy', :id => @group.id}, :method => :delete %>
+<% else %>
+	<% if current_user.admin?(@group) %>
+		<h2><%= link_to "Edit name", edit_group_path(@group.id) %></h2>
+	<% end %>
 <% end %>
 <h3>Show users in this group below</h3>
+<ol>
+	<% @group.users.each do |user| %>
+	<li>
+		<%= user.name %><br>
+		<%= image_tag(user.image) %>
+	</li>
+	<% end %>
+</ol>
 
