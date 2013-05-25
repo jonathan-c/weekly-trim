@@ -1,4 +1,7 @@
 WeeklyTrim::Application.routes.draw do
+  
+  resources :groups, :except => [:index]
+
   get "sessions/create"
 
   get "pages/home"

@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+  
+  def admin?(group)
+    group.memberships.find_by_user_id(self.id).admin
+  end
 end

@@ -1,0 +1,6 @@
+<h1><%= @group.name %></h1>
+<% if current_user.admin?(@group) %>
+	<h2><%= link_to "Edit name", edit_group_path(@group.id) %></h2>
+<% end %>
+<h3>Show users in this group below</h3>
+
