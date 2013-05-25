@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: memberships
+# Table name: posts
 #
 #  id         :integer          not null, primary key
+#  content    :string(255)
+#  url        :string(255)
 #  user_id    :integer
-#  group_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  admin      :boolean          default(FALSE)
 #
 
-class Membership < ActiveRecord::Base
+class Post < ActiveRecord::Base
   belongs_to :user
-  belongs_to :group
-  attr_accessible :group_id, :user_id, :admin
+  attr_accessible :content, :url
 end
