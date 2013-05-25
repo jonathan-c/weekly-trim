@@ -15,4 +15,8 @@ class Group < ActiveRecord::Base
   has_many :users, :through => :memberships
   
   validates :name, presence: :true
+  
+  def generate_link(user)
+    Digest::MD5.hexdigest("#{self.created_at}#{user.id}")
+  end
 end
