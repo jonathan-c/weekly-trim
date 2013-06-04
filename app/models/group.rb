@@ -37,4 +37,12 @@ class Group < ActiveRecord::Base
       end
     end
   end
+  
+  # def mail_post_reminders
+  #   self.users.each do |user|
+  #     if user.post_reminder? && # user has not posted since the last posts email
+  #       PostsMailer.post_reminder(user).deliver
+  #     end
+  #   end
+  # end
 end
