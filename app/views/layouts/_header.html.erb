@@ -17,6 +17,7 @@
 				      	<% end %>
 				    </ul>
 				  </li>
+					<%= yield :nav %>
           <li><%= link_to "Sign out", signout_path %></li>
 					<% else %>
 						<li><%= link_to "Sign in", root_path %></li>

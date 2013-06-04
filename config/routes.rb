@@ -1,6 +1,11 @@
 WeeklyTrim::Application.routes.draw do
 
+  get "users/edit"
+
+  get "users/update"
+
   resources :groups, :except => [:index] do
+    resources :users, :only => [:edit, :update]
     resources :posts
   end
 

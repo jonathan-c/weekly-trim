@@ -1,5 +1,9 @@
 <h1><%= @group.name %></h1>
 
+<% content_for :nav do %>
+<li><%= link_to "Settings", edit_group_user_path(@group.id, current_user.id)  %></li>
+<% end %>
+
 <%= render 'group_nav' %>
 
 <h3>Group Members</h3>
@@ -16,6 +20,3 @@
 		</li>
 <% end %>
 </ul>
-
-
-
