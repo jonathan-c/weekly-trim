@@ -7,23 +7,29 @@
 	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
 <% elsif current_user.member?(@group) %>
 	<%= button_to "Leave Group", {:controller => :join_groups, :action => 'destroy', :id => @group.id}, :method => :delete %>
+	<%= link_to "Post something new", new_group_post_path(@group.id) %>
 <% else %>
 	<% if current_user.admin?(@group) %>
 		<h2><%= link_to "Edit name", edit_group_path(@group.id) %></h2>
+		<%= link_to "Post something new", new_group_post_path(@group.id) %>
 	<% end %>
 <% end %>
 
-<%= link_to "Post something new", new_group_post_path(@group.id) %>
 
 <h3>Group Members</h3>
+<ul id="users-list">
 	<% @group.users.each do |user| %>
-	<div>
-		<%= user.name %><br>
-		<%= image_tag(user.image, :size => "100x133") %><br>
-		<% if !user.posts.last.nil? %>
-			<%= link_to user.posts.last.content, user.posts.last.url %>
-		<% end %>
-	</div>
+		<li class="user-entry">
+			<%= user.name %><br>
+			<%= image_tag(user.image, :size => "100x133") %><br>
+			<% if !user.posts.last.nil? %>
+				<%= link_to user.posts.last.content, user.posts.last.url, target: "_blank" %>
+			<% end %>
+		</li>
 <% end %>
+</ul>
+
+<!-- Button to trigger modal -->
+
 
 

@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+#users-list .user-entry {
+	display: inline-block;
+	margin: 0px 25px 0px 25px;
+	vertical-align: top;
+}
