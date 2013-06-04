@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604042159) do
+ActiveRecord::Schema.define(:version => 20130604192235) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -50,10 +50,12 @@ ActiveRecord::Schema.define(:version => 20130604042159) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "image"
     t.string   "email"
+    t.boolean  "subscribed",    :default => true
+    t.boolean  "post_reminder", :default => true
   end
 
 end

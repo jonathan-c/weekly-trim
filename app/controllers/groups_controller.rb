@@ -30,13 +30,7 @@ class GroupsController < ApplicationController
   end
   
   def email
-    posts = []
-    @group.users.each do |user|
-      posts << user.posts.last
-    end
-    @group.users.each do |user|
-      PostsMailer.posts_email(user, posts).deliver
-    end
+    @group.mail_recent_posts
     redirect_to @group
   end
   

@@ -6,9 +6,5 @@ class PostsMailer < ActionMailer::Base
     @posts = posts
     # mail(:to => user.email, :subject => "Weekly Trim")
     mail(:to => "castillo@wow.com", :subject => "Weekly Trim")
-    # @members = members
-    #     @members.each do |member|
-    #       mail(:to => member.email, :subject => "Weekly Trim")
-    #     end
   end
 end

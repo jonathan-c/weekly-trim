@@ -27,5 +27,14 @@ class Group < ActiveRecord::Base
         posts << user.posts.last
       end
     end
+    posts
+  end
+  
+  def mail_recent_posts
+    self.users.each do |user|
+      if user.subscribed?
+        PostsMailer.posts_email(user, self.recent_posts).deliver
+      end
+    end
   end
 end
