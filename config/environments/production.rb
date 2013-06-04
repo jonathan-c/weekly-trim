@@ -1,5 +1,15 @@
 WeeklyTrim::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: true,
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: 'plain',
+    user_name: 'weeklytrim@gmail.com',
+    password: 'weeklytrim2013'
+  }
+  
 
   # Code is not reloaded between requests
   config.cache_classes = true
