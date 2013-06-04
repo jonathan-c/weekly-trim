@@ -19,4 +19,13 @@ class Group < ActiveRecord::Base
   def generate_link(user)
     Digest::MD5.hexdigest("#{self.created_at}#{user.id}")
   end
+  
+  def recent_posts
+    posts = []
+    self.users.each do |user|
+      if !user.posts.last.nil?
+        posts << user.posts.last
+      end
+    end
+  end
 end
