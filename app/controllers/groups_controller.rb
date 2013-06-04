@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :find_group, :only => [:show, :edit, :update]
+  before_filter :find_group, :only => [:show, :edit, :update, :email]
   # before_filter :check_permission, :only => [:show]
   
   def new
@@ -27,6 +27,17 @@ class GroupsController < ApplicationController
 
   def destroy
     
+  end
+  
+  def email
+    posts = []
+    @group.users.each do |user|
+      posts << user.posts.last
+    end
+    @group.users.each do |user|
+      PostsMailer.posts_email(user, posts).deliver
+    end
+    redirect_to @group
   end
   
   private

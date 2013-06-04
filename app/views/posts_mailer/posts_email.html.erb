@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= @user.name %>,</h1>
+    <p>
+      Here is this weeks Weekly Trim.
+    </p>
+    <ol>
+    	<% @posts.each do |post| %>
+				<% if !post.nil? %>
+					<li><%= link_to post.title, post.url %></li>
+				<% end %>
+			<% end %>
+    </ol>
+  </body>
+</html>

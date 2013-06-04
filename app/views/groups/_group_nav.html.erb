@@ -1,14 +1,13 @@
 <% if current_user.nil? %>
 	<%= link_to "Sign in with Facebook", signin_path("facebook", :group_id => @group.id) %>	
 	<%= link_to "Sign in with Twitter", signin_path("twitter", :group_id => @group.id) %>
+<% elsif current_user.admin?(@group) %>
+	<h2><%= link_to "Edit name", edit_group_path(@group.id) %></h2>
+	<%= link_to "Post something new", new_group_post_path(@group.id) %>
+	<%= button_to "Email the group", {:controller => :groups, :action => 'email', :id => @group.id } %>
 <% elsif !current_user.member?(@group) %>
 	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
 <% elsif current_user.member?(@group) %>
 	<%= button_to "Leave Group", {:controller => :join_groups, :action => 'destroy', :id => @group.id}, :method => :delete %>
 	<%= link_to "Post something new", new_group_post_path(@group.id) %>
-<% else %>
-	<% if current_user.admin?(@group) %>
-		<h2><%= link_to "Edit name", edit_group_path(@group.id) %></h2>
-		<%= link_to "Post something new", new_group_post_path(@group.id) %>
-	<% end %>
 <% end %>
