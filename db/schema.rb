@@ -20,11 +20,6 @@ ActiveRecord::Schema.define(:version => 20130604192235) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
-
   create_table "memberships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "group_id"
