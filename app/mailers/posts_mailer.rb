@@ -8,9 +8,9 @@ class PostsMailer < ActionMailer::Base
     mail(:to => "castillo@wow.com", :subject => "Weekly Trim")
   end
   
-  # def post_reminder(user)
-  #   @user = user
-  #   # mail(:to => user.email, :subject => "Weekly Trim")
-  #   mail(:to => "castillo@wow.com", :subject => "Weekly Trim")
-  # end
+  def post_reminder_email(user)
+    @user = user
+    # mail(:to => user.email, :subject => "Weekly Trim")
+    mail(:to => "castillo@wow.com", :subject => "Weekly Trim")
+  end
 end

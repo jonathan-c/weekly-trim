@@ -2,11 +2,12 @@
 #
 # Table name: groups
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  share_link :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  share_link      :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  last_email_sent :datetime
 #
 
 require 'test_helper'

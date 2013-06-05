@@ -11,7 +11,6 @@ class PostsController < ApplicationController
     @group = Group.find(params[:group_id])
     @post = Post.new(user_id: current_user.id, title: params[:post]["title"], url: params[:post]["url"])
     @post.save
-    PostsMailer.posts_email(current_user).deliver
     redirect_to group_path(@group.id)
   end
 

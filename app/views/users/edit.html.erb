@@ -1,4 +1,6 @@
 <%= form_for([@group, @user]) do |form| %>
+	<%= form.label :email %>
+	<%= form.text_field :email, placeholder: @user.email %>
 	<%= form.label :subscribe_to_weekly_emails? %>
 	<%= select(:user, :subscribed, [['Yes', true], ['No', false]]) %>
 	<%= form.label :receive_emails_reminding_you_to_post? %>

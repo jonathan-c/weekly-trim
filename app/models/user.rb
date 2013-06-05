@@ -15,7 +15,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :provider, :uid, :post_reminder, :subscribed
+  attr_accessible :name, :provider, :uid, :post_reminder, :subscribed, :email
   has_many :memberships
   has_many :groups, :through => :memberships
   has_many :posts
@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
   
   def unsubscribe_from_post_reminders
     self.post_reminder = false
+  end
+  
+  def resubscribe_to_post_reminders
+    self.post_reminder = true
   end
   
   def unsubscribe
