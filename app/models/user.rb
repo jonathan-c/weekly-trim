@@ -35,7 +35,11 @@ class User < ActiveRecord::Base
   end
   
   def admin?(group)
-    group.memberships.find_by_user_id(self.id).admin
+    if group.memberships.find_by_user_id(id)
+      group.memberships.find_by_user_id(id).admin
+    else
+      false
+    end
   end
   
   def member?(group)
