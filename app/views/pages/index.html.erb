@@ -1,4 +1,30 @@
-This is the homepage
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weekly Trim</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js", "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>    
+  </head>
+  <body>
 
-<%= link_to "Sign in with Facebook", "/auth/facebook" %>
-<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+    <div class="container-narrow">
+			
+			<div class="masthead offset1">
+        <h3 class="muted">Weekly Trim</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron" style="text-align: center;">
+        <h1>Filter through the noise.</h1>
+        <p class="lead">Weekly Trim is a space where friends and colleagues can share one thing that they find interesting on the web each week.</p><br/>
+				<a class="btn btn-large btn-info" href="/auth/twitter">Login with Twitter</a>
+				<a class="btn btn-large btn-primary" href="/auth/facebook">Login with Facebook</a>
+      </div>
+      <hr>
+    </div>
+  </body>
+</html>
