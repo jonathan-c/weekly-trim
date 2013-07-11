@@ -10,6 +10,8 @@ WeeklyTrim::Application.routes.draw do
   end
   
   # match "/group/access/*code" => 'controller#action'
+  
+  match '/join-group' => 'groups#join'
 
   get "sessions/create"
 

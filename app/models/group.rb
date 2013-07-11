@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  last_email_sent :datetime
+#  token           :string(255)
 #
 
 class Group < ActiveRecord::Base
@@ -15,10 +16,15 @@ class Group < ActiveRecord::Base
   has_many :memberships
   has_many :users, :through => :memberships
   
+  before_create :set_token
   validates :name, presence: :true
   
   def generate_link
     Digest::MD5.hexdigest("#{self.created_at}#{self.id}")
+  end
+  
+  def set_token
+    self.token = SecureRandom.hex
   end
   
   def recent_posts

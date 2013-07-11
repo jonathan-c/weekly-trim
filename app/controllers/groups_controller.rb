@@ -34,6 +34,13 @@ class GroupsController < ApplicationController
     redirect_to @group
   end
   
+  def join
+    @group = Group.find_by_token(params[:token])
+    if current_user.member?(@group)
+      redirect_to group_path(@group)
+    end
+  end
+  
   private
   
     def find_group

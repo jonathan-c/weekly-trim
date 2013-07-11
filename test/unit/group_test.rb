@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  last_email_sent :datetime
+#  token           :string(255)
 #
 
 require 'test_helper'

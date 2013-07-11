@@ -9,6 +9,9 @@
 <% end %>
 
 <%= render 'group_nav' %>
+<br/>
+
+Invite friends and colleagues to your group:  <%= text_field_tag "group_url", "localhost:3000/join-group?token=#{@group.token}", options = { width: 500 } %>
 
 <h3>Group Members</h3>
 <ul id="users-list">
