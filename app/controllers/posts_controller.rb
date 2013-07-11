@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @group = Group.find(params[:group_id])
-    @post = Post.new(user_id: current_user.id, title: params[:post]["title"], url: params[:post]["url"])
+    @post = Post.new(user_id: current_user.id, group_id: @group.id, title: params[:post]["title"], url: params[:post]["url"])
     @post.save
     redirect_to group_path(@group.id)
   end

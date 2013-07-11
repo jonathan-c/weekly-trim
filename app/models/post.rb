@@ -13,7 +13,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :group
-  attr_accessible :title, :url, :user_id
+  attr_accessible :title, :url, :user_id, :group_id
   
   validates :title, presence: :true
   
