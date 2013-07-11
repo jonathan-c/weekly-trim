@@ -13,8 +13,6 @@ WeeklyTrim::Application.routes.draw do
     resources :posts
   end
   
-  # match "/group/access/*code" => 'controller#action'
-  
   # match '/join-group' => 'groups#join'
   get '/join-group/:token' => 'groups#join', :as => :join_group
 

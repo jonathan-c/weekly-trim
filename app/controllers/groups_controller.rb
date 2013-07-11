@@ -7,13 +7,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(name: params[:group]["name"])
-    @group.save
+    @group = Group.create(name: params[:group]["name"])
     @group.memberships.create(user_id: params[:group]["user_id"], group_id: @group.id, admin: true)
     redirect_to group_path(@group.id)
   end
 
   def show
+    debugger
     if session[:auto_join] == "y"
       redirect_to join_groups_create_path
     end   

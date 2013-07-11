@@ -8,9 +8,11 @@ class SessionsController < ApplicationController
         session[:auto_join] = params[:auto_join]
         redirect_to group_path(params[:group_id])
       else
+        session.delete(:auto_join)
         redirect_to group_path(params[:group_id])
       end
     else
+      session.delete(:auto_join)
       redirect_to welcome_path, notice: "Signed in!"
     end
   end
