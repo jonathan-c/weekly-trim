@@ -17,8 +17,8 @@ class Group < ActiveRecord::Base
   
   validates :name, presence: :true
   
-  def generate_link(user)
-    Digest::MD5.hexdigest("#{self.created_at}#{user.id}")
+  def generate_link
+    Digest::MD5.hexdigest("#{self.created_at}#{self.id}")
   end
   
   def recent_posts

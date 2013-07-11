@@ -8,6 +8,8 @@ WeeklyTrim::Application.routes.draw do
     resources :users, :only => [:edit, :update]
     resources :posts
   end
+  
+  # match "/group/access/*code" => 'controller#action'
 
   get "sessions/create"
 
