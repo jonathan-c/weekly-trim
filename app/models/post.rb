@@ -16,17 +16,9 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :url, :user_id, :group_id
   
   validates :title, presence: :true
-  
-  # scope :this_week, ->(created_at) {
-  #   reservation = reserve_on.change(min: 0)
-  #   
-  #   where(
-  #     "created_at >= ? AND created_at <= ?",
-  #     created_at,
-  #     reservation + 59.minutes
-  #   )
-  # }
-  
-  
+
+  def this_weeks_posts
+    Post.where(created_at: (Time.zone.now.beginning_of_week..Time.zone.now.end_of_week))
+  end  
   
 end

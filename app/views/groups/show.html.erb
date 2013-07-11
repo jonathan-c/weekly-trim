@@ -20,8 +20,8 @@ Invite friends and colleagues to your group:  <%= text_field_tag "group_url", "l
 		<li class="user-entry">
 			<%= user.name %><br>
 			<%= image_tag(user.image, :size => "100x133") %><br>
-			<% if !user.groups.find_by_id(@group.id).posts.last.nil? %>
-				<%= link_to user.groups.find_by_id(@group.id).posts.last.title, user.posts.last.url, target: "_blank" %>
+			<% if user.this_weeks_posts(@group).present? %>
+				<%= link_to user.this_weeks_posts(@group).last.title, user.posts.last.url, target: "_blank" %>
 			<% else %>
 				<p>hasn't posted yet.</p>
 			<% end %>
