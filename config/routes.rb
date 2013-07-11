@@ -11,7 +11,8 @@ WeeklyTrim::Application.routes.draw do
   
   # match "/group/access/*code" => 'controller#action'
   
-  match '/join-group' => 'groups#join'
+  # match '/join-group' => 'groups#join'
+  get '/join-group/:token' => 'groups#join', :as => :join_group
 
   get "sessions/create"
 

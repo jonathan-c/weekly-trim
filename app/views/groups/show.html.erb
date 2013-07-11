@@ -12,9 +12,8 @@
 <br/>
 
 <div class="link">
-Invite friends and colleagues to your group:  <%= text_field_tag "group_url", "localhost:3000/join-group?token=#{@group.token}", width: '500px', class: "share_link" %>
+Invite friends and colleagues to your group:  <%= text_field_tag "group_url", "localhost:3000/join-group/#{@group.token}", width: '500px', class: "share_link" %>
 </div>
-
 <h3>Group Members</h3>
 <ul id="users-list">
 	<% @group.users.each do |user| %>

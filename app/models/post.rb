@@ -15,4 +15,17 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :url, :user_id
   
   validates :title, presence: :true
+  
+  # scope :this_week, ->(created_at) {
+  #   reservation = reserve_on.change(min: 0)
+  #   
+  #   where(
+  #     "created_at >= ? AND created_at <= ?",
+  #     created_at,
+  #     reservation + 59.minutes
+  #   )
+  # }
+  
+  
+  
 end

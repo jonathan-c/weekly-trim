@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    if session[:auto_join]
+    if session[:auto_join] == "y"
       join_groups_create_path(@group.id)
     end   
   end
@@ -46,7 +46,11 @@ class GroupsController < ApplicationController
   private
   
     def find_group
-      @group = Group.find(params[:id])
+      if params[:group_id]
+        @group = Group.find(params[:group_id])
+      else
+        @group = Group.find(params[:id])
+      end
     end
     
     def check_permission
