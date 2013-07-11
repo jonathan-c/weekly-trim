@@ -63,6 +63,6 @@ class User < ActiveRecord::Base
   end
   
   def this_weeks_posts(group)
-    self.groups.find_by_id(group.id).posts.where(created_at: (Time.zone.now.beginning_of_week..Time.zone.now.end_of_week), user_id: self.id)
+    self.groups.find_by_id(group.id).posts.where(created_at: (Time.current.beginning_of_week..Time.current.end_of_week), user_id: self.id)
   end
 end

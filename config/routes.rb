@@ -1,5 +1,9 @@
 WeeklyTrim::Application.routes.draw do
 
+  namespace :admin do
+    match 'mailer(/:action(/:id(.:format)))' => 'mailer#:action'
+  end
+
   get "users/edit"
 
   get "users/update"

@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
 
   def show
     if session[:auto_join] == "y"
-      join_groups_create_path(@group.id)
+      redirect_to join_groups_create_path
     end   
   end
 

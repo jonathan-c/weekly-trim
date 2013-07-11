@@ -3,3 +3,9 @@
 Weekly Trim is a space where friends and colleagues can share one thing that they find interesting on the web each week. 
 
 Overtime a collection of articles, quotes, videos, and images is curated by the people you know and trust.
+
+== Viewing emails in browser
+
+http://localhost:3000/admin/mailer/post_reminder_email
+
+http://localhost:3000/admin/mailer/posts_email
