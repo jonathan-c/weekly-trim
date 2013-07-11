@@ -15,6 +15,7 @@ class Group < ActiveRecord::Base
   attr_accessible :name, :share_link
   has_many :memberships
   has_many :users, :through => :memberships
+  has_many :posts
   
   before_create :set_token
   validates :name, presence: :true
