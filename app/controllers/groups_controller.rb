@@ -14,8 +14,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    if params[:auto_join]
-      debugger
+    if session[:auto_join]
+      join_groups_create_path(@group.id)
     end   
   end
 

@@ -3,6 +3,6 @@
 <% if current_user %>
 	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
 <% else %>
-	<a class="btn btn-large btn-info" href="<%= "/auth/twitter?group_id=#{@group.id}"+"?auto_join=y" %>">Login with Twitter</a>
-	<a class="btn btn-large btn-primary" href="<%= "/auth/facebook?group_id=#{@group.id}"+"?auto_join=y" %>">Login with Facebook</a>
+	<a class="btn btn-large btn-info" href="<%= signin_path('twitter', group_id: @group.id, auto_join: 'y') %>">Login with Twitter</a>
+	<a class="btn btn-large btn-primary" href="<%= signin_path('facebook', group_id: @group.id, auto_join: 'y') %>">Login with Facebook</a>
 <% end %>

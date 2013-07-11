@@ -17,3 +17,7 @@
 	margin: 0px 25px 0px 25px;
 	vertical-align: top;
 }
+
+.link input.share_link {
+	width: 500px;
+}
