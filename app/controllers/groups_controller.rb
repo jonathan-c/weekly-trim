@@ -14,7 +14,9 @@ class GroupsController < ApplicationController
   end
 
   def show
-    
+    if params[:auto_join]
+      debugger
+    end   
   end
 
   def edit
