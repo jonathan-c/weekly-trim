@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.create(name: params[:group]["name"])
     @group.memberships.create(user_id: params[:group]["user_id"], group_id: @group.id, admin: true)
-    redirect_to group_path(@group.id)
+    redirect_to group_path(@group)
   end
 
   def show
@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
 
   def update
     @group.update_attributes(name: params[:group]["name"])
-    redirect_to group_path(@group.id)
+    redirect_to group_path(@group)
   end
 
   def destroy
@@ -55,8 +55,6 @@ class GroupsController < ApplicationController
     def check_permission
       if current_user.nil?
         redirect_to root_path 
-      # elsif !current_user.member?(@group)
-      #   redirect_to '/pages/no_access'
       end
     end
 
