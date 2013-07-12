@@ -3,18 +3,8 @@ class SessionsController < ApplicationController
     auth = request.env["omniauth.auth"]
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
-    if params[:group_id].present?
-      if params[:auto_join].present?
-        session[:auto_join] = params[:auto_join]
-        redirect_to group_path(params[:group_id])
-      else
-        session.delete(:auto_join)
-        redirect_to group_path(params[:group_id])
-      end
-    else
-      session.delete(:auto_join)
-      redirect_to welcome_path, notice: "Signed in!"
-    end
+    session[:group_id], session[:auto_join] = params[:group_id], params[:auto_join]
+    redirect_to pages_ask_for_email_path
   end
   
   def destroy

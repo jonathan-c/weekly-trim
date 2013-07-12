@@ -13,9 +13,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    debugger
     if session[:auto_join] == "y"
-      redirect_to join_groups_create_path
+      join_groups_create_path
     end   
   end
 
@@ -46,8 +45,8 @@ class GroupsController < ApplicationController
   private
   
     def find_group
-      if params[:group_id]
-        @group = Group.find(params[:group_id])
+      if session[:group_id]
+        @group = Group.find(session[:group_id])
       else
         @group = Group.find(params[:id])
       end

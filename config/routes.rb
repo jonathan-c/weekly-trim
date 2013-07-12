@@ -21,6 +21,9 @@ WeeklyTrim::Application.routes.draw do
   get "pages/home"
   get "pages/welcome"
   get "pages/no_access"
+  get "pages/ask_for_email"
+  get "pages/update_email"
+  get "pages/dispatcher"
   
   post "groups/email"
   
