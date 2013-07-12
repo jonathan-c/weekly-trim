@@ -480,9 +480,11 @@
 																		
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <h2>Title</h2>
-                                                <h4>heading</h4>
-																								Stuff
+                                                <h2>Hey <%= @user.name %>,</h2>
+																								<%= @group.posted_this_week.to_sentence %> have already posted something.
+                                                <h4>Don't be that guy who forgets to share something cool this week.</h4>
+																								Weekly Trim gets emailed tomorrow morning.
+																								<%= link_to "Post something now", new_group_post_path(@group) %>
                                             </td>
                                         </tr>
 															

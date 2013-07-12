@@ -24,6 +24,16 @@ class Group < ActiveRecord::Base
     Digest::MD5.hexdigest("#{self.created_at}#{self.id}")
   end
   
+  def posted_this_week
+    posted_this_week = []
+     users.each do |user|
+       if user.this_weeks_posts(self).present?
+         posted_this_week<<user.name
+       end
+     end
+     posted_this_week
+  end
+  
   def set_token
     self.token = SecureRandom.hex
   end
