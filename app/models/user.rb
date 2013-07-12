@@ -65,4 +65,9 @@ class User < ActiveRecord::Base
   def this_weeks_posts(group)
     self.groups.find_by_id(group.id).posts.where(created_at: (Time.current.beginning_of_week..Time.current.end_of_week), user_id: self.id)
   end
+  
+  def join_group(group)
+    membership = self.memberships.create(group_id: group.id, user_id: self.id)
+    membership.save
+  end
 end
