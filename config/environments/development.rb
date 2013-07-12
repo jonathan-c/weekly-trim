@@ -12,6 +12,8 @@ WeeklyTrim::Application.configure do
     user_name: 'weeklytrim@gmail.com',
     password: 'weeklytrim2013'
   }
+  
+  ENV['URL'] = "http://localhost:3000/"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
