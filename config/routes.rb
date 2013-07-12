@@ -4,16 +4,11 @@ WeeklyTrim::Application.routes.draw do
     match 'mailer(/:action(/:id(.:format)))' => 'mailer#:action'
   end
 
-  get "users/edit"
-
-  get "users/update"
-
   resources :groups, :except => [:index] do
     resources :users, :only => [:edit, :update]
     resources :posts
   end
   
-  # match '/join-group' => 'groups#join'
   get '/join-group/:token' => 'groups#join', :as => :join_group
 
   get "sessions/create"
@@ -31,7 +26,6 @@ WeeklyTrim::Application.routes.draw do
   delete "/join_groups/destroy"
   
   match "/welcome" => "pages#welcome"
-  match "/pages/no_access" => "pages#no_access"
   match "/auth/:provider" => redirect("http://#{DOMAIN_NAME}/auth/#{:provider}"), :as => :signin
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
