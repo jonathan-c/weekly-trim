@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+
   before_filter :find_group, :only => [:show, :edit, :update, :email]
   before_filter :check_permission, :only => [:show]
   
@@ -16,7 +17,10 @@ class GroupsController < ApplicationController
     if session[:auto_join] == "y"
       current_user.join_group(@group)
       session.delete(:auto_join)
-    end   
+    end
+    if current_user.email.nil?
+    	flash[:notice] = "You should add your email address in the settings page."
+    end  
   end
 
   def edit
