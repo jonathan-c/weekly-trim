@@ -4,7 +4,7 @@ class Admin::MailerController < Admin::ApplicationController
     @user = User.last
     @posts = Post.all
     @group = Group.last
-    @posters_this_week = @group.posters_this_week
+    @posters_this_week = @group.posted_this_week
     render :file => 'posts_mailer/posts_email.html.erb', :posts_mailer => 'mailer', :layout=>false
   end
   

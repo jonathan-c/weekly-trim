@@ -23,7 +23,7 @@ WeeklyTrim::Application.routes.draw do
   post "groups/email"
   
   post "/join_groups/create"
-  delete "/join_groups/destroy"
+  post "/join_groups/destroy"
   
   match "/welcome" => "pages#welcome"
   match "/auth/:provider" => redirect("http://#{DOMAIN_NAME}/auth/#{:provider}"), :as => :signin

@@ -8,6 +8,6 @@
 <% elsif !current_user.member?(@group) %>
 	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
 <% elsif current_user.member?(@group) %>
-	<%= button_to "Leave Group", {:controller => :join_groups, :action => 'destroy', :id => @group.id}, :method => :delete %>
+	<%= button_to "Leave Group", {:controller => :join_groups, :action => 'destroy', :id => @group.id} %>
 	<%= link_to "Post something new", new_group_post_path(@group.id) %>
 <% end %>

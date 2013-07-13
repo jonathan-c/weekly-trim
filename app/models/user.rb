@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   end
   
   def member?(group)
-    self.memberships.find_by_group_id(group.id).nil? ? false : true
+    self.memberships.find_by_user_id_and_group_id(self.id, group.id).nil? ? false : true
   end
   
   def unsubscribe_from_post_reminders
@@ -69,5 +69,9 @@ class User < ActiveRecord::Base
   def join_group(group)
     membership = self.memberships.create(group_id: group.id, user_id: self.id)
     membership.save
+  end
+  
+  def leave_group(group)
+    Membership.find_by_user_id_and_group_id(self.id, group.id).destroy
   end
 end

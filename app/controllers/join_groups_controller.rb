@@ -8,8 +8,7 @@ class JoinGroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-    @membership = Membership.find_by_user_id_and_group_id(current_user.id, @group.id)
-    @membership.destroy
+    current_user.leave_group(@group)
     redirect_to group_path(@group.id)
   end
 end

@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
   def show
     if session[:auto_join] == "y"
       current_user.join_group(@group)
+      session.delete(:auto_join)
     end   
   end
 
