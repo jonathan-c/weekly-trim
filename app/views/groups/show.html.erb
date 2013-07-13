@@ -1,15 +1,35 @@
-<h1><%= @group.name %></h1>
+<div class="edit-group-name">
+<%= @group.name %>
+<% if current_user.admin?(@group) %>
+	<%= link_to "Edit", edit_group_path(@group.id), class: "edit" %>
+<% end %>
+</div>
 
 <% content_for :nav do %>
 <li><%= link_to "Settings", edit_group_user_path(@group.id, current_user.id)  %></li>
 <% end %>
 
 <%= render 'group_nav' %>
-<br/>
 
 <div class="link">
-Invite friends and colleagues to your group:  <%= text_field_tag "group_url", "#{ENV['URL']}join-group/#{@group.token}", width: '500px', class: "share_link" %>
+Invite new group members with this URL<br/>  
+<%= text_field_tag "group_url", "#{ENV['URL']}join-group/#{@group.token}", width: '500px', class: "share_link" %>
 </div>
+
+<% if current_user.admin?(@group) %>
+	<%= button_to "Email the group", {:controller => :groups, :action => 'email', :id => @group.id } %>
+<% elsif !current_user.member?(@group) %>
+	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
+<% elsif current_user.member?(@group) %>
+	<%= button_to "Leave Group", {:controller => :join_groups, :action => 'destroy', :id => @group.id} %>
+<% end %>
+
+<div class="post-button">
+<% if current_user.member?(@group) %>
+<a href="<%= new_group_post_path(@group.id) %>"><button class="btn btn-primary" type="button">Post to Group</button></a>
+<% end %>
+</div>
+
 <h3>Group Members</h3>
 <ul id="users-list">
 	<% @group.users.each do |user| %>

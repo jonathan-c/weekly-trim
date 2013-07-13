@@ -1,5 +1,6 @@
 <header class="navbar navbar-fluid-top navbar-inverse">
   <div class="navbar-inner">
+	<div class="nav-collapse collapse">
     <div class="container">
 			<% if current_user %>
 			<%= link_to "Weekly Trim", welcome_path, id: "logo" %>
@@ -30,6 +31,7 @@
         </ul>
       </nav>
     </div>
+	</div>
   </div>
 </header>
 
