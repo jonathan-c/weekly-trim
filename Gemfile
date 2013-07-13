@@ -8,6 +8,7 @@ gem 'omniauth-twitter'
 gem 'certified'
 gem 'annotate'
 gem 'figaro'
+gem 'twitter-bootstrap-rails'
 
 group :test do
 end

@@ -1,7 +1,11 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fluid-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Weekly Trim", '#', id: "logo" %>
+			<% if current_user %>
+			<%= link_to "Weekly Trim", welcome_path, id: "logo" %>
+			<% else %>
+      <%= link_to "Weekly Trim", root_path, id: "logo" %>
+			<% end %>
 			<!--<%= image_tag("logo.jpg", style: "max-width:600px", id: "headerImage", width: "200px") %>-->
  			<nav>
 	 			<ul class="nav pull-right">
