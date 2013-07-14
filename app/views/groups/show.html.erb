@@ -19,7 +19,7 @@ Invite new group members with this URL<br/>
 </div>
 <div class="post-button">
 <% if current_user.member?(@group) %>
-<a href="<%= new_group_post_path(@group.id) %>"><button class="btn btn-large btn-primary" type="button">Post to Group</button></a>
+<a href="<%= new_group_post_path(@group.id) %>"><button class="btn btn-large btn-primary" type="button">Post Something</button></a>
 <% end %>
 </div><br/>
 <ul class="users-list">
