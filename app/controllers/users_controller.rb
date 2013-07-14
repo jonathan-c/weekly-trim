@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update_attributes(params[:user])
-    redirect_to edit_group_user_path(@group, @user)
+    redirect_to edit_group_user_path(@group, @user), notice: "Update successful"
   end
   
   private

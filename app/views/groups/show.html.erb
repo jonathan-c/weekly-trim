@@ -35,7 +35,7 @@ Invite new group members with this URL<br/>
 	<% @group.users.each do |user| %>
 		<li class="user-entry">
 			<%= user.name %><br>
-			<%= image_tag(user.image, :size => "100x133") %><br>
+			<%= image_tag(user.image, :size => "150x150") %><br>
 			<% if user.this_weeks_posts(@group).present? %>
 				<%= link_to user.this_weeks_posts(@group).last.title, user.posts.last.url, target: "_blank" %>
 			<% else %>
