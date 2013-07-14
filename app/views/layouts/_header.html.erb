@@ -3,9 +3,9 @@
 	<div class="nav-collapse collapse">
     <div class="container">
 			<% if current_user %>
-			<%= link_to "Weekly Trim", welcome_path, id: "logo" %>
+			<a class="brand" href="<%= welcome_path %>"> <img src="http://i.imgur.com/lvSsq1H.png"></a>
 			<% else %>
-      <%= link_to "Weekly Trim", root_path, id: "logo" %>
+			<a class="brand" href="<%= root_path %>"> <img src="http://i.imgur.com/lvSsq1H.png"></a>
 			<% end %>
 			<!--<%= image_tag("logo.jpg", style: "max-width:600px", id: "headerImage", width: "200px") %>-->
  			<nav>
