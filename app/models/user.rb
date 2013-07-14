@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :groups, :through => :memberships
   has_many :posts
   
-  validates :email, email_format: { message: "doesn't look like an email address" }
+  validates :email, email_format: { message: "doesn't look like an email address" }, allow_blank: true
   
   def self.create_with_omniauth(auth)
     create! do |user|
