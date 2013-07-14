@@ -1,4 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="welcome-page">
 <%= current_user.email %>
-<%= image_tag(current_user.image) %>
+<%= image_tag(current_user.image) %><br/><br/>
+<a href="<%= new_group_path %>"><button class="btn btn-large btn-primary" type="button">Create Group</button></a>
+<br/><br/>
+<% if current_user.groups.any? %>
+<h2 style="margin-bottom: 5px;">My Groups</h2>
+<% current_user.groups.each do |group| %>
+	- <%= link_to group.name, group_path(group) %><br/>
+<% end %>
+
+</div>
+<% end %>

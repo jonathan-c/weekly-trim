@@ -40,13 +40,14 @@
 }
 
 .link {
+	margin-top: 20px;
 	text-align: center;
 }
 
 .edit-group-name  {
 	font-size: 3em;
   letter-spacing: -2px;
-	margin-top: 30px;
+	margin-top: 10px;
   margin-bottom: 30px;
   text-align: center;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -62,5 +63,18 @@
 
 
 .post-button {
+	text-align: center;
+}
+
+.welcome-page {
+	text-align: center;
+}
+
+.join-leave-button {
+	float: right;
+	margin-right: 175px;
+}
+
+.form {
 	text-align: center;
 }

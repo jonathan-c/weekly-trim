@@ -1,8 +1,10 @@
-<h1>Post something new</h1>
-<%= form_for([@group, @post]) do |f| %>
+<h1>Post something new.</h1>
+<%= form_for([@group, @post], html: { class: "form" }) do |f| %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :group_id, :value => @group.id %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	<%= f.label :url %>
-	<%= f.text_field :url %>
-	<%= f.submit %>
+	<%= f.text_field :url %><br/>
+	<%= f.submit "Create Post", class: "btn" %>
 <% end %>
