@@ -16,8 +16,14 @@ class PagesController < ApplicationController
   end
   
   def update_email
-    current_user.update_attributes(email: params[:email])
-    redirect_to pages_dispatcher_path
+    User.transaction do
+      current_user.update_attributes(email: params[:email])
+      if current_user.valid?
+        redirect_to pages_dispatcher_path
+      else
+        redirect_to pages_ask_for_email_path, alert: "Please enter a valid email."
+      end
+    end
   end
   
   def dispatcher

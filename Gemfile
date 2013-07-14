@@ -9,6 +9,7 @@ gem 'certified'
 gem 'annotate'
 gem 'figaro'
 gem 'twitter-bootstrap-rails'
+gem 'validates_email_format_of'
 
 group :test do
 end
