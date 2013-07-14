@@ -15,6 +15,15 @@ class Post < ActiveRecord::Base
   belongs_to :group
   attr_accessible :title, :url, :user_id, :group_id
   
+  after_create :is_http_url
+  
   validates :title, presence: :true
+  
+  def is_http_url
+    if !url.include?("http")
+      self.update_attributes(url: "http://"+url)
+    end
+  end
+
   
 end
