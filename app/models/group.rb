@@ -34,6 +34,16 @@ class Group < ActiveRecord::Base
      posted_this_week
   end
   
+  def users_who_posted_this_week
+    posted_this_week = []
+     users.each do |user|
+       if user.this_weeks_posts(self).present?
+         posted_this_week<<user
+       end
+     end
+     posted_this_week
+  end
+  
   def set_token
     self.token = SecureRandom.hex
   end
@@ -56,11 +66,11 @@ class Group < ActiveRecord::Base
       end
     end
   end
-  
+ 
   def send_post_reminders
     self.users.each do |user|
-      if user.post_reminder? 
-        if user.posts.last.nil? || (user.posts.last.created_at < self.last_email_sent)
+      if user.post_reminder?
+        if self.users_who_posted_this_week.include?(user) == false
           PostsMailer.post_reminder_email(user, self).deliver
         end
       end
