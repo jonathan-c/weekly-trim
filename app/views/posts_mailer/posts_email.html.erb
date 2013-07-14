@@ -466,11 +466,6 @@
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
                                                 <%= @group.name %> Weekly Trim: <%= @posts.count %> posts from the people you care about.
                                             </td>
-                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
-                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                                Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
-                                            </td>
-                                            <!-- *|END:IF|* -->
                                         </tr>
                                     </table>
                                     <!-- // END PREHEADER -->
@@ -482,7 +477,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-																							<%= image_tag("logo.jpg", style: "max-width:600px", id: "headerImage") %>
+                                            	<img src="http://i.imgur.com/ApCz4Qz.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
                                             </td>
                                         </tr>
                                     </table>

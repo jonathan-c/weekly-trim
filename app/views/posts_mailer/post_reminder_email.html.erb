@@ -450,10 +450,6 @@
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
                                                 You haven't posted something this week.
                                             </td>
-                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
-                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                                Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
-                                            </td>
                                             <!-- *|END:IF|* -->
                                         </tr>
                                     </table>
@@ -466,7 +462,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<%= image_tag("logo.jpg", style: "max-width:600px", id: "headerImage") %>
+                                            	<img src="http://i.imgur.com/ApCz4Qz.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
                                             </td>
                                         </tr>
                                     </table>
@@ -483,8 +479,8 @@
                                                 <h2>Hey <%= @user.name %>,</h2>
 																								<%= @group.posted_this_week.to_sentence %> have already posted something.
                                                 <h4>Don't be that guy who forgets to share something cool this week.</h4>
-																								Weekly Trim gets emailed tomorrow morning.
-																								<%= link_to "Post something now", new_group_post_path(@group) %>
+																								Weekly Trim gets emailed tomorrow morning.<br/><br/>
+																								<%= link_to "Post something now", "#{ENV["URL"]}groups/#{@group.id}/posts/new" %>
                                             </td>
                                         </tr>
 															
