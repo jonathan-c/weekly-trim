@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
   
   def member?(group)
-    self.memberships.find_by_user_id_and_group_id(self.id, group.id).nil? ? false : true
+    self.memberships.find_by_user_id_and_group_id(self.id, group.id).present?
   end
   
   def unsubscribe_from_post_reminders
