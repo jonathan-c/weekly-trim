@@ -16,11 +16,9 @@ Invite new group members with this URL<br/>
 <%= text_field_tag "group_url", "#{ENV['URL']}join-group/#{@group.token}", width: '500px', class: "share_link" %>
 </div>
 
-<% if current_user.admin?(@group) %>
-	<%= button_to "Email the group", {:controller => :groups, :action => 'email', :id => @group.id } %>
-<% elsif !current_user.member?(@group) %>
+<% if !current_user.member?(@group) %>
 	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
-<% elsif current_user.member?(@group) %>
+<% elsif current_user.member?(@group) && @group.admin != current_user %>
 	<%= button_to "Leave Group", {:controller => :join_groups, :action => 'destroy', :id => @group.id} %>
 <% end %>
 
