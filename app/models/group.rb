@@ -52,7 +52,7 @@ class Group < ActiveRecord::Base
     self.touch(:last_email_sent)
     self.users.each do |user|
       if user.subscribed?
-        PostsMailer.posts_email(user, self.recent_posts).deliver
+        PostsMailer.posts_email(user, self.recent_posts, self).deliver
       end
     end
   end
@@ -61,9 +61,13 @@ class Group < ActiveRecord::Base
     self.users.each do |user|
       if user.post_reminder? 
         if user.posts.last.nil? || (user.posts.last.created_at < self.last_email_sent)
-          PostsMailer.post_reminder_email(user).deliver
+          PostsMailer.post_reminder_email(user, self).deliver
         end
       end
     end
+  end
+  
+  def admin
+    User.find(Membership.find_by_group_id_and_admin(self.id, true).user_id)
   end
 end

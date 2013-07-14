@@ -29,9 +29,9 @@ Invite new group members with this URL<br/>
 <a href="<%= new_group_post_path(@group.id) %>"><button class="btn btn-primary" type="button">Post to Group</button></a>
 <% end %>
 </div>
-
-<h3>Group Members</h3>
-<ul id="users-list">
+<br/>
+<h3 style="text-align: center;">Group Members</h3><br/>
+<ul class="users-list">
 	<% @group.users.each do |user| %>
 		<li class="user-entry">
 			<%= user.name %><br>

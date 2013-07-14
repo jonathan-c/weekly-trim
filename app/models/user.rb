@@ -72,6 +72,9 @@ class User < ActiveRecord::Base
   end
   
   def leave_group(group)
-    Membership.find_by_user_id_and_group_id(self.id, group.id).destroy
+    # User cannot leave group if they're an admin
+    if self != Group.find(group.id).admin
+      Membership.find_by_user_id_and_group_id(self.id, group.id).destroy
+    end
   end
 end

@@ -16,11 +16,17 @@
 	margin-top: -60px;
 }
 
-#users-list .user-entry {
+#users-list {
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.users-list .user-entry {
 	display: inline-block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 150px;
+	width: 200px;
 	margin: 0px 25px 0px 25px;
 	vertical-align: top;
 	text-align: center;
@@ -40,8 +46,10 @@
 .edit-group-name  {
 	font-size: 3em;
   letter-spacing: -2px;
+	margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .edit-group-name [class^="icon-"] {
