@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_filter :find_group
+  before_filter :check_permission
+  
   def edit
     @user = User.find(params[:id])
   end
@@ -12,7 +14,15 @@ class UsersController < ApplicationController
   
   private
   
+  private
+  
     def find_group
       @group = Group.find(params[:group_id])
+    end
+    
+    def check_permission
+      if current_user.nil?
+        redirect_to root_path 
+      end
     end
 end
