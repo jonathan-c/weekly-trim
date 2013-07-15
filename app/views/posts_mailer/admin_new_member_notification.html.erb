@@ -446,7 +446,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                <%= @group.name %> Weekly Trim: <%= @posts.count %> posts from the people you care about.
+                                               <%= @user.name %> just joined the <%= @group.name %> group!
                                             </td>
                                         </tr>
                                     </table>
@@ -470,15 +470,14 @@
                             	<td align="center" valign="top">
                                 	<!-- BEGIN BODY // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
-																		<% @posts.each do |post| %>
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <h2><%= link_to post.title, post.url %></h2>
-                                                <h4>Posted by: <%= post.user.name %></h4>
-																								<%= image_tag(post.user.image, size: "150x150") %>
+                                               
+                                                <h4>New member: <%= @user.name %></h4>
+																								<%= image_tag(@user.image, size: "150x150") %>
+																								Joined the <%= @group.name %> group.
                                             </td>
                                         </tr>
-																		<% end %>
                                     </table>
                                     <!-- // END BODY -->
                                 </td>

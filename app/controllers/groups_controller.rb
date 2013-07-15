@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
   def show
     if session[:auto_join] == "y"
       current_user.join_group(@group)
+      PostsMailer.admin_new_member_notification(current_user, @group).deliver
       session.delete(:auto_join)
     end
     if current_user.email.nil?

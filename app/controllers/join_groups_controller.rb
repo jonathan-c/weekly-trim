@@ -3,6 +3,7 @@ class JoinGroupsController < ApplicationController
     @group = Group.find(params[:id])
     @membership = current_user.memberships.create(group_id: @group.id, user_id: current_user.id)
     @membership.save
+    PostsMailer.admin_new_member_notification(current_user, @group).deliver
     redirect_to group_path(@group.id)
   end
 
