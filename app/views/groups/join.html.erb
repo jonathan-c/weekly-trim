@@ -1,8 +1,25 @@
-<h1>Join the <%= @group.name %> group.</h1>
 
-<% if current_user %>
-	<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
-<% else %>
-	<a class="btn btn-large btn-info" href="<%= signin_path('twitter', group_id: @group.id, auto_join: 'y') %>">Login with Twitter</a>
-	<a class="btn btn-large btn-primary" href="<%= signin_path('facebook', group_id: @group.id, auto_join: 'y') %>">Login with Facebook</a>
-<% end %>
+    <div class="container-narrow">
+			
+			<div class="masthead">
+				<img src="http://i.imgur.com/TkW9SVO.png" style="max-width:400px;">
+      </div>
+
+      <hr>
+
+      <div class="jumbotron" style="text-align: center;">
+        <h1>Filter through the noise.</h1>
+        <p class="lead">Weekly Trim is a space where friends and colleagues can share one thing that they find interesting on the web each week.</p><br/>
+				<h4><%= @group.admin.name %> has invited you to join the <%= @group.name %> group.</h4>
+
+				<% if current_user %>
+					<%= button_to "Join", {:controller => :join_groups, :action => 'create', :id => @group.id} %>
+				<% else %>
+					<a class="btn btn-large btn-info" href="<%= signin_path('twitter', group_id: @group.id, auto_join: 'y') %>">Login with Twitter</a>
+					<a class="btn btn-large btn-primary" href="<%= signin_path('facebook', group_id: @group.id, auto_join: 'y') %>">Login with Facebook</a>
+				<% end %>
+
+      </div>
+
+    </div>
+
