@@ -21,6 +21,9 @@ class UsersController < ApplicationController
     end
     
     def check_permission
+      if current_user != User.find(params[:id])
+        redirect_to root_path
+      end
       if current_user.nil?
         redirect_to root_path 
       end
