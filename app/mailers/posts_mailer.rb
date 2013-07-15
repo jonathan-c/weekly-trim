@@ -18,6 +18,6 @@ class PostsMailer < ActionMailer::Base
   def admin_new_member_notification(user, group)
     @user = user
     @group = group
-    mail(:to => "joncastillo123@gmail.com", :subject => "#{@user.name} just joined the #{@group.name} group!")
+    mail(:to => "castillo@wow.com", :subject => "#{@user.name} just joined the #{@group.name} group!")
   end
 end
