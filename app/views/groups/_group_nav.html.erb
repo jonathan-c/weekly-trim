@@ -1,4 +1,3 @@
 <% if current_user.nil? %>
-	<%= link_to "Sign in with Facebook", signin_path("facebook", :group_id => @group.id) %>	
 	<%= link_to "Sign in with Twitter", signin_path("twitter", :group_id => @group.id) %>
 <% end %>
