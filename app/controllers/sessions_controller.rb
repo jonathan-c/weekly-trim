@@ -8,11 +8,10 @@ class SessionsController < ApplicationController
     else
       user = User.create_with_omniauth(auth)
       session[:user_id] = user.id
-      session[:group_id], session[:auto_join] =
         if params[:provider] == "twitter"
-          params[:group_id], params[:auto_join]
+          session[:group_id], session[:auto_join] = params[:group_id], params[:auto_join]
         elsif params[:provider] == "facebook"
-          env["omniauth.params"]["group_id"], env["omniauth.params"]["auto_join"]
+          session[:group_id], session[:auto_join] = env["omniauth.params"]["group_id"], env["omniauth.params"]["auto_join"]
         end
       redirect_to pages_dispatcher_path
     end
