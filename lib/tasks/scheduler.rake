@@ -11,7 +11,7 @@ task :send_posts => :environment do
 end
 
 task :send_post_reminders => :environment do
-  if Date.today.saturday?
+  if Date.today.friday?
     puts "Mailing post reminders..."
     Group.all.each do |group|
       group.send_post_reminders
