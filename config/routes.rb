@@ -26,7 +26,7 @@ WeeklyTrim::Application.routes.draw do
   post "/join_groups/destroy"
   
   match "/welcome" => "pages#welcome"
-  match "/auth/:provider" => redirect("http://#{DOMAIN_NAME}/auth/#{:provider}"), :as => :signin
+  match "/auth/:provider" => redirect("http://www.#{DOMAIN_NAME}/auth/#{:provider}"), :as => :signin
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
   
