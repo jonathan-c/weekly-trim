@@ -477,15 +477,20 @@
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
                                                 <h2>Hey <%= @user.name %>,</h2>
+																								<% if @group.posted_this_week.blank? %>
+																								No one has posted yet. Be the first to post!
+																								<% else %>
 																								<%= @group.posted_this_week.to_sentence %> have already posted something.
                                                 <h4>Don't be that guy or girl who forgets to share something cool this week.</h4>
-																								Weekly Trim gets emailed tomorrow morning.<br/><br/>
+																								<% end %>
+																								Weekly Trim gets emailed Sunday morning.<br/><br/>
 																								<%= link_to "Post something now", "#{ENV["URL"]}groups/#{@group.id}/posts/new" %>
                                             </td>
                                         </tr>
 															
                                     </table>
                                     <!-- // END BODY -->
+																		<br/>
                                 </td>
                             </tr>
                         	<tr>
