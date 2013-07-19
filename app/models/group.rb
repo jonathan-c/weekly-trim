@@ -62,7 +62,9 @@ class Group < ActiveRecord::Base
     self.touch(:last_email_sent)
     self.users.each do |user|
       if user.subscribed?
-        PostsMailer.posts_email(user, self.recent_posts, self).deliver
+        if !user.email.blank?
+          PostsMailer.posts_email(user, self.recent_posts, self).deliver
+        end
       end
     end
   end
