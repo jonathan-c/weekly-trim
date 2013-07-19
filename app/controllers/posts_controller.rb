@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :check_permission
+  
   def index
   end
 
@@ -31,4 +33,12 @@ class PostsController < ApplicationController
 
   def destroy
   end
+  
+  private
+  
+    def check_permission
+      if current_user.nil?
+        redirect_to root_path 
+      end
+    end
 end

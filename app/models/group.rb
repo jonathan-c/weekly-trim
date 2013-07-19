@@ -71,7 +71,9 @@ class Group < ActiveRecord::Base
     self.users.each do |user|
       if user.post_reminder?
         if self.users_who_posted_this_week.include?(user) == false
-          PostsMailer.post_reminder_email(user, self).deliver
+          if !user.email.blank?
+            PostsMailer.post_reminder_email(user, self).deliver
+          end
         end
       end
     end
