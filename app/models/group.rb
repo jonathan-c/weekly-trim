@@ -49,13 +49,7 @@ class Group < ActiveRecord::Base
   end
   
   def recent_posts
-    posts = []
-    self.users.each do |user|
-      if !user.posts.last.nil?
-        posts << user.posts.last
-      end
-    end
-    posts
+    self.posts.where(created_at: (Time.current.beginning_of_week..Time.current.end_of_week))
   end
   
   def send_posts
